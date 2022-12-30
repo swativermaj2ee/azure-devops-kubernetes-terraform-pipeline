@@ -20,7 +20,7 @@ trigger:
     backendAzureRmContainerName: 'terraform-state-file-container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: false'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
 
 - task: DownloadSecureFile@1
   name: publickey
