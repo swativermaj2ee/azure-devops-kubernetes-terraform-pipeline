@@ -24,7 +24,7 @@ steps:
     backendServiceArm: 'azure-resorce-manager-service-connection'
     backendAzureRmSubscriptionId: '2c5ae364-77f3-40a0-a3a5-bbb724cef2b0'
     ensureBackend: true
-    backendAzureRmResourceGroupLocation: 'eastus'
+    backendAzureRmResourceGroupLocation: 'westeurope'
     backendAzureRmStorageAccountName: 'tfstatestorageaccountxyz'
     backendAzureRmContainerName: 'terraform-state-file-container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
