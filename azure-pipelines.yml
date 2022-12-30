@@ -5,6 +5,12 @@
 
 trigger:
 - master
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo K8s Terraform Azure!
+  displayName: 'Run a one-line script'
 - task: TerraformCLI@0
   inputs:
     command: 'init'
@@ -26,9 +32,4 @@ trigger:
   inputs:
     secureFile: 'aksprodsshkey.pub'
 
-pool:
-  vmImage: ubuntu-latest
 
-steps:
-- script: echo K8s Terraform Azure!
-  displayName: 'Run a one-line script'
