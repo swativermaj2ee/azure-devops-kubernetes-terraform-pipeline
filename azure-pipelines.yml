@@ -22,9 +22,9 @@ trigger:
     allowTelemetryCollection: false'
   
 - task: DownloadSecureFile@1
-    name: publickey
-    inputs:
-      secureFile: 'aksprodsshkey.pub'
+  name: publickey
+  inputs:
+    secureFile: 'aksprodsshkey.pub'
 
 pool:
   vmImage: ubuntu-latest
