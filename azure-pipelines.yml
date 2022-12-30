@@ -14,12 +14,12 @@ steps:
 - task: DownloadSecureFile@1
   name: publickey
   inputs:
-    secureFile: 'aksprodsshkey.pub'
+    secureFile: 'akstfsshkey.pub'
 - task: TerraformCLI@0
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resorce-manager-service-connection'
     backendAzureRmSubscriptionId: '2c5ae364-77f3-40a0-a3a5-bbb724cef2b0'
