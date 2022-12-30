@@ -22,7 +22,7 @@ trigger:
     allowTelemetryCollection: false'
   
 - task: DownloadSecureFile@1
-  name: publickey
+    name: publickey
     inputs:
       secureFile: 'aksprodsshkey.pub'
 
