@@ -7,9 +7,6 @@ trigger:
 - master
 - task: TerraformCLI@0
   inputs:
-    command: 'validate'
-    commandOptions: '- task: TerraformCLI@0
-  inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret)'
