@@ -31,7 +31,7 @@ steps:
     backendAzureRmStorageAccountName: 'tfstatestorageaccountabc'
     backendAzureRmStorageAccountSku: 'Standard'
     backendAzureRmContainerName: 'terraform-state-file-container'
-    backendAzureRmKey: 'xtpP57fCBUWyGIbo0qfQQ9XIj+tnOssDGuZxZYUGOEELW9Wv4VOvDGCfk5oJaQ0hHQUSKQIKctac+AStLOj1VQ=='
+    backendAzureRmKey: 'dev-kubernetes.tfstate'
     allowTelemetryCollection: false'
        
 
@@ -42,7 +42,8 @@ steps:
     environmentServiceName: 'azure-resorce-manager-service-connection'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     allowTelemetryCollection: false
-  
 
-
-
+- task: TerraformInstaller@0
+  displayName: Terraform Install
+  inputs:
+    terraformVersion: 'latest'
