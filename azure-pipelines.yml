@@ -30,7 +30,7 @@ steps:
     backendAzureRmStorageAccountName: 'tfstatestorageaccountabc'
     backendAzureRmStorageAccountSku: 'Standard'
     backendAzureRmContainerName: 'terraform-state-file-container'
-    backendAzureRmKey: 'kubernetes-dev.tfstate'
+    backendAzureRmKey: 'xtpP57fCBUWyGIbo0qfQQ9XIj+tnOssDGuZxZYUGOEELW9Wv4VOvDGCfk5oJaQ0hHQUSKQIKctac+AStLOj1VQ=='
     allowTelemetryCollection: false'
        
 
