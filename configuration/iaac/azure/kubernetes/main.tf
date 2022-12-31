@@ -34,6 +34,24 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
 }
 
 terraform {
+  # 1. Required Version Terraform
+  required_version = ">= 0.13"
+  # 2. Required Terraform Providers  
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 2.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "~> 2.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
+  }
+  
   backend "azurerm" {
     storage_account_name="tfstatestorageaccountxyz" #OVERRIDE in TERRAFORM init
     access_key="<<storage_account_key>>" #OVERRIDE in TERRAFORM init
