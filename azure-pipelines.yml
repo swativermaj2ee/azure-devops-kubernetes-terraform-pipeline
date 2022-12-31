@@ -13,7 +13,7 @@ steps:
     secureFile: 'akstfsshkey.pub'
     
 
-- task: TerraformInstaller@0
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller
   displayName: Terraform Install
   inputs:
     terraformVersion: 'latest'
