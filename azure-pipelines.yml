@@ -23,7 +23,7 @@ steps:
     ensureBackend: true
     backendAzureRmResourceGroupName: 'terraform-storage-rg'
     backendAzureRmResourceGroupLocation: 'eastus'
-    backendAzureRmStorageAccountName: 'tfstatestorageaccountabc'
+    backendAzureRmStorageAccountName: 'tfstatestorageaccountxyz'
     backendAzureRmStorageAccountSku: 'Standard'
     backendAzureRmContainerName: 'terraform-state-file-container'
     backendAzureRmKey: 'dev-kubernetes.tfstate'
