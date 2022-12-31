@@ -15,7 +15,7 @@ steps:
   name: publickey
   inputs:
     secureFile: 'akstfsshkey.pub'
--
+
 - task: TerraformCLI@0
   inputs:
     command: 'init'
