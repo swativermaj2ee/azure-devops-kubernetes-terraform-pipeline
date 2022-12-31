@@ -7,6 +7,10 @@ pool:
 steps:
 - script: echo K8s Terraform Azure!
   displayName: 'Run a one-line script'
+
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: 'latest'
 - task: DownloadSecureFile@1
   name: publickey
   inputs:
