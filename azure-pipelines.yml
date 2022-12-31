@@ -38,7 +38,7 @@ stages:
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
           backendType: 'azurerm'
-          backendServiceArm: 'azure-resorce-manager-service-connection'
+          backendServiceArm: 'AzureDevOps-Service-connection'
           backendAzureRmResourceGroupName: 'terraform-storage-rg'
           backendAzureRmStorageAccountName: 'tfstatestorageaccountxyz'
           backendAzureRmContainerName: 'terraform-state-file-container'
@@ -81,7 +81,7 @@ stages:
                 command: 'init'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
                 backendType: 'azurerm'
-                backendServiceArm: 'azure-resorce-manager-service-connection'
+                backendServiceArm: 'AzureDevOps-Service-connection'
                 backendAzureRmResourceGroupName: 'terraform-storage-rg'
                 backendAzureRmStorageAccountName: 'tfstatestorageaccountxyz'
                 backendAzureRmContainerName: 'terraform-state-file-container'
@@ -93,7 +93,7 @@ stages:
               inputs:
                 command: 'plan'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                environmentServiceName: 'azure-resorce-manager-service-connection'
+                environmentServiceName: 'AzureDevOps-Service-connection'
                 commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(DEV_ENVIRONMENT) -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                 allowTelemetryCollection: false
             - task: TerraformCLI@0
@@ -101,7 +101,7 @@ stages:
               inputs:
                 command: 'apply'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                environmentServiceName: 'azure-resorce-manager-service-connection'
+                environmentServiceName: 'AzureDevOps-Service-connection'
                 commandOptions: '$(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out'
                 allowTelemetryCollection: false
 
@@ -133,7 +133,7 @@ stages:
                 command: 'init'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
                 backendType: 'azurerm'
-                backendServiceArm: 'azure-resorce-manager-service-connection'
+                backendServiceArm: 'AzureDevOps-Service-connection'
                 backendAzureRmResourceGroupName: 'terraform-storage-rg'
                 backendAzureRmStorageAccountName: 'tfstatestorageaccountxyz'
                 backendAzureRmContainerName: 'terraform-state-file-container'
@@ -144,7 +144,7 @@ stages:
               inputs:
                 command: 'plan'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                environmentServiceName: 'azure-resorce-manager-service-connection'
+                environmentServiceName: 'AzureDevOps-Service-connection'
                 commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(QA_ENVIRONMENT) -out $(Pipeline.Workspace)/terraform-manifests-out/$(QA_ENVIRONMENT)-$(Build.BuildId).out'
                 allowTelemetryCollection: false
             - task: TerraformCLI@0
@@ -152,6 +152,6 @@ stages:
               inputs:
                 command: 'apply'
                 workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
-                environmentServiceName: 'azure-resorce-manager-service-connection'
+                environmentServiceName: 'AzureDevOps-Service-connection'
                 commandOptions: '$(Pipeline.Workspace)/terraform-manifests-out/$(QA_ENVIRONMENT)-$(Build.BuildId).out'
                 allowTelemetryCollection: false
