@@ -32,8 +32,7 @@ steps:
     backendAzureRmContainerName: 'terraform-state-file-container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: false'
-    allowTelemetryCollection: false'
-    
+       
 
 - task: TerraformCLI@0
   inputs:
