@@ -16,8 +16,15 @@ steps:
   name: publickey
   inputs:
     secureFile: 'akstfsshkey.pub'
+    
+
+- task: TerraformInstaller@0
+  displayName: Terraform Install
+  inputs:
+    terraformVersion: 'latest'
 
 - task: TerraformCLI@0
+  displayName: Terraform init
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
@@ -36,14 +43,10 @@ steps:
        
 
 - task: TerraformCLI@0
+  displayName: Terraform apply
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     environmentServiceName: 'azure-resorce-manager-service-connection'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     allowTelemetryCollection: false
-
-- task: TerraformInstaller@0
-  displayName: Terraform Install
-  inputs:
-    terraformVersion: 'latest'
